@@ -3,9 +3,8 @@ package com.wg.whitegift.controller;
 import com.wg.whitegift.entity.MyUser;
 import com.wg.whitegift.repository.MyUserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.ui.ModelMap;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 public class UserController {
@@ -20,5 +19,15 @@ public class UserController {
     public MyUser insertUser(MyUser user){
         MyUser save = userRepository.save(user);
         return user;
+    }
+
+    @RequestMapping(method = RequestMethod.GET)
+
+    public String getUserList(ModelMap map) {
+
+        map.addAttribute("userList", userRepository.findAll());
+
+        return "userList";
+
     }
 }

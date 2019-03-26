@@ -6,10 +6,54 @@
     <title>home</title>
 </head>
 <body>
-<p>
-    "WDNMD == we do not mind diss"
-    <div th:text="${wel}"></div>
-</p>
+
+
+<table class="table table-hover table-condensed">
+
+    <legend>
+
+        <strong>list</strong>
+
+    </legend>
+
+    <thead>
+
+    <tr>
+
+        <th>policyId</th>
+
+        <th>holder</th>
+
+        <th>benefit</th>
+
+        <th>sum</th>
+
+        <th>Date</th>
+
+    </tr>
+
+    </thead>
+
+    <tbody>
+
+    <tr th:each="policy : ${policyList}">
+
+        <th scope="row" th:text="${policy.id}"></th>
+
+        <td><a th:href="@{/policy/update/{policyId}(policyId=${policy.id})}" th:text="${policy.holderId}"></a></td>
+
+        <td th:text="${policy.insureDate}"></td>
+
+        <td th:text="${policy.totalPrice}"></td>
+
+        <td><a class="btn btn-danger" th:href="@{/policys/delete/{policyId}(policyId=${policy.id})}">delete</a></td>
+
+    </tr>
+
+    </tbody>
+
+</table>
+
 
 </body>
 </html>

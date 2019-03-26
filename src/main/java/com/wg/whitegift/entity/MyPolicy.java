@@ -1,10 +1,12 @@
 package com.wg.whitegift.entity;
 
 
+import lombok.Data;
+
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
 import java.util.Date;
-
+@Data
 @Entity
 @Table(name = "policy")
 public class MyPolicy {
@@ -15,16 +17,16 @@ public class MyPolicy {
     @NotBlank
     @Column(nullable = false, length = 30)
     private String policyType;
-    @NotBlank
+
     @Column(nullable = false)
     private int holderId;
-    @NotBlank
+
     @Column(nullable = false)
     private int benId;
-    @NotBlank
+
     @Column(nullable = false)
     private Date insureDate;
-    @NotBlank
+
     @Column(nullable = false)
     private Date insurePer;
     @NotBlank
@@ -39,8 +41,8 @@ public class MyPolicy {
     @NotBlank
     @Column(nullable = false, length = 10)
     private String currencyType;
-    @NotBlank
-    private Double sum;
+
+    private Double totalPrice;
     @NotBlank
     private String pic;
     @NotBlank
@@ -48,10 +50,10 @@ public class MyPolicy {
     @NotBlank
     @Column(nullable = false)
     private String detail;
-    @NotBlank
+
     @Column(nullable = false)
     private int version;
-    @NotBlank
+
     @Column(nullable = false)
-    private Date update;
+    private Date renewarry;
 }
