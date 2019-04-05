@@ -1,0 +1,14 @@
+spring:
+    main:
+      allow-bean-definition-overriding: true
+    datasource:
+      username: root
+      password: szy980703
+
+      url: jdbc:mysql://localhost:3306/project
+      initialization-mode: always
+    jpa:
+      hibernate:
+        ddl-auto: create
+      show-sql: true
+debug: true
